@@ -1,10 +1,10 @@
 interface:
   display_name: "A股 ABC 分类器"
-  short_description: "区分公司质地ABC与价格、估值和拥挤度，判断是否为好资产"
-  default_prompt: "Use $ashare-abc-classifier to grade company quality independently from price, then assess valuation, crowding, and whether it is a good asset."
+  short_description: "对已适配A股公司做ABC评级，分开判断质地、价格与拥挤度"
+  default_prompt: "使用 $ashare-abc-classifier 独立评定公司质地ABC；仅在我要求时补充估值、拥挤度和好资产判断。"
 
 
 # 如果 Skill 只希望在点名时调用
 
-# policy:
-#   allow_implicit_invocation: false
+policy:
+  allow_implicit_invocation: false
