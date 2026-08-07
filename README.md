@@ -1,4 +1,4 @@
-# AShare ABC Classifier
+# AStock ABC Classifier
 
 一套面向 A 股产业链研究的、证据驱动的公司质地分层 Skill。
 
@@ -6,7 +6,7 @@
 
 > **好公司不等于好资产；好公司 + 好价格，才可能构成好资产。**
 
-`ashare-abc-classifier` 先在不使用当前股价、估值和交易拥挤度的前提下，把公司分为 A/B/C；再单独评估估值、预期饱和度、交易拥挤和退出风险，形成当前资产结论。
+`astock-abc-classifier` 先在不使用当前股价、估值和交易拥挤度的前提下，把公司分为 A/B/C；再单独评估估值、预期饱和度、交易拥挤和退出风险，形成当前资产结论。
 
 适用于光模块、PCB、CCL、MLCC、AI 芯片、半导体设备、半导体材料、周期资源品、项目制造、软件与 AI 应用等股票池，也可以扩展到其他存在清晰“产业—产品—客户—订单—财务”链条的行业。
 
@@ -262,19 +262,19 @@ M3 = 20 × (100 - 拥挤风险分) / 100
 ## 使用示例
 
 ```text
-使用 $ashare-abc-classifier，按 2026-08-01 可得公开信息，
+使用 $astock-abc-classifier，按 2026-08-01 可得公开信息，
 分析这组光模块股票在 800G/1.6T 投资命题下的公司质地 ABC。
 先不要看估值，只比较真实暴露、客户订单、财务兑现、壁垒和持续性。
 ```
 
 ```text
-使用 $ashare-abc-classifier，在公司 ABC 不变的前提下，
+使用 $astock-abc-classifier，在公司 ABC 不变的前提下，
 补充估值安全边际、预期饱和度和交易拥挤度，
 判断哪些 A 公司当前可以称为好资产候选。
 ```
 
 ```text
-使用 $ashare-abc-classifier，比较一家公司的整体质量评级，
+使用 $astock-abc-classifier，比较一家公司的整体质量评级，
 以及它在 AI 芯片主题下的受益评级；如果两者不同，请并列展示。
 ```
 
@@ -284,7 +284,7 @@ M3 = 20 × (100 - 拥挤风险分) / 100
 .
 ├─ README.md
 └─ skill/
-   └─ ashare-abc-classifier/
+   └─ astock-abc-classifier/
       ├─ SKILL.md
       ├─ agents/
       │  └─ openai.yaml
@@ -295,10 +295,10 @@ M3 = 20 × (100 - 拥挤风险分) / 100
          └─ output-templates.md
 ```
 
-实际安装时，将 `ashare-abc-classifier` 技能目录放入 Codex 的 skills 目录。在 Windows 默认环境中通常为：
+实际安装时，将 `astock-abc-classifier` 技能目录放入 Codex 的 skills 目录。在 Windows 默认环境中通常为：
 
 ```text
-C:\Users\<用户名>\.codex\skills\ashare-abc-classifier
+C:\Users\<用户名>\.codex\skills\astock-abc-classifier
 ```
 
 ## 设计纪律
