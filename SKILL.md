@@ -1,6 +1,6 @@
 ---
-name: ashare-abc-classifier
-description: Classify supported non-financial A-share companies and stock pools into price-independent A/B/C quality grades, then separately assess valuation, crowding, exit risk, and whether a good company is available at a good price. Use for A股公司质地ABC、股票池分层、好公司与好资产区分，以及光模块、PCB、CCL、MLCC、AI芯片、半导体设备、材料、周期品、项目制造、软件等已适配商业模式。For banks, insurers, brokers, or unsupported models, provide a fact card or hand off instead of inventing an official ABC score.
+name: a-stock-abc-classifier
+description: Classify supported non-financial A-share companies and stock pools into price-independent A/B/C quality grades, and optionally assess valuation, crowding, exit risk, and asset attractiveness. Use for A股公司质地ABC、股票池分层、好公司与好资产区分，以及光模块、PCB、CCL、MLCC、AI芯片、半导体设备、材料、周期品、项目制造、软件等已适配商业模式。不用于不含ABC目标的完整投资分析、独立消息核验、通用证据分级或未适配的金融商业模式；对银行、保险、券商等仅输出非标准事实卡或转入合适流程，不臆造正式ABC。
 ---
 
 # A股 ABC 分类器
@@ -54,11 +54,11 @@ ABC必须绑定明确的**评级范围/投资命题**。在光模块、PCB或AI�
 
 无法确认的数据标记为“未知”，不要填零、猜测或按其余维度重新放大。区分“未知”“尚未进入验证”和已有反面证据的“失败”。
 
-### 3. 建立证据账本
+### 3. 整理事实底稿
 
-按 S/A/B/C/D 分级记录证据、日期和来源。优先使用公司公告、财报、交易所问询、监管披露、客户或交易对手资料，再查产业数据；研报和市场讨论只作线索。
+记录关键命题、来源、日期、支持或反对方向、冲突、缺口和置信度，区分已确认事实、分析推断和未知。关键公司结论不得只依赖公司宣传、单份研报或市场讨论；同一原始材料被多次转述只算一项输入。
 
-A类关键结论不得只依赖公司宣传、研报或社交媒体。
+本 Skill 可自行收集完成分类所需的数据和公司事实，也可接收结构化事实材料。收到外部材料时保留其命题状态、来源、日期、冲突、缺口、置信度及原有证据标记，不重新定义或改写证据等级，只负责把事实输入映射到闸门、评分和ABC结论。
 
 ### 4. 通过三道公司闸门
 
@@ -83,7 +83,7 @@ A类关键结论不得只依赖公司宣传、研报或社交媒体。
 
 ### 6. 评定公司质地ABC
 
-使用 `core-framework.md` 的价格无关100分模型、硬门槛、同行分位和公司历史区间。ABC升降级只能由公司与产业证据触发。
+使用 `core-framework.md` 的价格无关100分模型、硬门槛、同行分位和公司历史区间。ABC升降级只能由公司与产业事实变化触发。
 
 判定顺序固定为：先执行G1/G2失败、重大G3失败及重大治理风险等C类否决；再检查A类全部硬门槛；剩余真实但未闭环的公司归B。不得只看加总分，也不得用非关键维度高分补偿真实暴露、商业化或财务真实性缺口。
 
@@ -125,7 +125,7 @@ M1、M2或M3任一未满足 `core-framework.md` 与 `crowding-analysis.md` 的�
 - 价格与市场状态分、估值状态和数据截至日期（若触发）；
 - 拥挤风险分和拥挤阶段（若触发）；
 - 资产结论；
-- 最硬证据、最大反证和下一验证点；
+- 关键事实依据、最大反证和下一验证点；
 - 公司升降级条件与价格/拥挤改善条件。
 
 股票池只有在观察时点、财务期间、产品定义和数据口径一致时才能排名。口径不一致时，保持用户输入顺序或按证券代码排列，逐家输出事实卡；不得通过表格行序、梯队、分数区间或“临时排序”形成隐性排名。
@@ -134,4 +134,4 @@ M1、M2或M3任一未满足 `core-framework.md` 与 `crowding-analysis.md` 的�
 
 ## 研究纪律
 
-区分产品、认证、订单、交付、利润和现金，不用股价证明基本面，不重复计算同一证据链。注明时点与未知，低置信度最高评B，不承诺收益。
+区分产品、认证、订单、交付、利润和现金，不用股价证明基本面，不重复计算同一事实链。注明时点与未知，低置信度最高评B，不承诺收益。
